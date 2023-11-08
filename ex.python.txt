@@ -1,0 +1,35 @@
+def SubString(word,c): 
+
+    sub = ""
+    for i in range(len( word)):
+        if c ==  word[i]:
+            sub = word[0:i+1]
+    return sub   
+def Stars(StarsNumber):
+    s=""
+    for i in range(StarsNumber):
+        s += "*"
+    return s 
+   
+print("Game start")
+
+Word = "Abdelaadim"
+Word.lower()
+
+RemainAttempts = 5
+
+while RemainAttempts >0: 
+    C = input("guess a carachter : ")
+    Temp = SubString(Word,C) 
+    if Temp != "":
+        Temp = Temp + Stars(len(Word) - len(Temp))
+        
+        print("good guess!!")
+        print("the word now is : [ ",Temp," ].")
+        if Temp ==Word:
+            print("GREAT YOU GUESSED THE WORD")
+            break
+    else :
+        RemainAttempts -= 1
+        print("bad guess")
+        print("you have just ", RemainAttempts)
